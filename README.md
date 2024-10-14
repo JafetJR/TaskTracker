@@ -1,4 +1,4 @@
-Sample solution for the [task tracker](https://roadmap.sh/projects/task-tracker)
+Sample solution for the https://roadmap.sh/projects/task-tracker
 
 Instructions:
 
