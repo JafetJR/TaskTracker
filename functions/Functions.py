@@ -22,7 +22,7 @@ def add(task):
                         "createdAt": createat, 
                         "updatedAt": updateat}
     
-    with open("../Tasks/Tasks.json", 'a', encoding='utf-8') as rd_json:
+    with open("./Tasks/Tasks.json", 'a', encoding='utf-8') as rd_json:
         json.dump(task_format_dict, rd_json, ensure_ascii=False)
         rd_json.write('\n')
     rd_json.close()
@@ -31,7 +31,7 @@ def add(task):
 
 def read_file():
     Tasks.clear()
-    with open("../Tasks/Tasks.json", "r", encoding='utf-8') as rd_json:
+    with open("./Tasks/Tasks.json", "r", encoding='utf-8') as rd_json:
         for js in rd_json:
             Tasks.append( json.loads(js) )
 
@@ -64,7 +64,7 @@ def update(id_task, desc_task):
         else:
             updated_tasks.append(task)
     
-    Write_to_File("../Tasks/Tasks.json", updated_tasks)
+    Write_to_File("./Tasks/Tasks.json", updated_tasks)
 
 def delete_task(id_task):
     read_file()
@@ -72,7 +72,7 @@ def delete_task(id_task):
     for task in Tasks:
         filtered_tasks.append(task) if task['id'] != id_task else None
     
-    Write_to_File("../Tasks/Tasks.json", filtered_tasks)
+    Write_to_File("./Tasks/Tasks.json", filtered_tasks)
 
 def mark_options(id_task, sts, param_adi=None):
     read_file()
@@ -83,4 +83,4 @@ def mark_options(id_task, sts, param_adi=None):
         task['status']=sts if task['id'] == id_task else task['status']
         Tasks_with_changed_status.append(task)
     
-    Write_to_File("../Tasks/Tasks.json", Tasks_with_changed_status)
+    Write_to_File("./Tasks/Tasks.json", Tasks_with_changed_status)
